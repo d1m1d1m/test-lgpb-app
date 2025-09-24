@@ -1,0 +1,122 @@
+{
+  "type": "doc",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Céréales complètes (flocons d'"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            },
+            {
+              "type": "underline"
+            }
+          ],
+          "text": "avoine"
+        },
+        {
+          "type": "text",
+          "text": "*, flocons de "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            },
+            {
+              "type": "underline"
+            }
+          ],
+          "text": "blé"
+        },
+        {
+          "type": "text",
+          "text": "*), sucre*, huile de tournesol*, poudre de chocolat* 7% (sucre*, poudre de cacao*), morceaux de chocolat* 5% (sucre*, pâte de cacao*, beurre de cacao*, émulsifiant : lécithine de tournesol*), riz soufflé* (farine de riz*, farine de "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            },
+            {
+              "type": "underline"
+            }
+          ],
+          "text": "blé"
+        },
+        {
+          "type": "text",
+          "text": "*, sucre*, malt d'"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            },
+            {
+              "type": "underline"
+            }
+          ],
+          "text": "orge"
+        },
+        {
+          "type": "text",
+          "text": "*, émulsifiant : lécithine de tournesol*), farine de "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            },
+            {
+              "type": "underline"
+            }
+          ],
+          "text": "blé"
+        },
+        {
+          "type": "text",
+          "text": "*, sirop de glucose*, chocolat au lait* 0.7% (sucre*, poudre de "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            },
+            {
+              "type": "underline"
+            }
+          ],
+          "text": "lait"
+        },
+        {
+          "type": "text",
+          "text": " entier*, beurre de cacao*, pâte de cacao*, arome*), miel*, sucre* caramélisé, antioxydant : extrait riche en tocophérols."
+        }
+      ]
+    },
+    {
+      "type": "paragraph"
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(*) Produits issus de l'agriculture biologique"
+        }
+      ]
+    }
+  ]
+}
