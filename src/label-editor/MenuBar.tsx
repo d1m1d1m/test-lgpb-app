@@ -1,4 +1,4 @@
-import { BoldIcon, BugIcon, CaseLowerIcon, CaseUpperIcon, ItalicIcon, RedoIcon, StrikethroughIcon, UnderlineIcon, UndoIcon } from "lucide-react";
+import { BoldIcon, CaseLowerIcon, CaseUpperIcon, ItalicIcon, RedoIcon, UnderlineIcon, UndoIcon } from "lucide-react";
 import { useEditorState, type Editor } from "@tiptap/react";
 import { type FC } from "react";
 import { Toggle } from "@/components/ui/toggle";
