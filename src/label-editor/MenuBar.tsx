@@ -1,7 +1,7 @@
-import { BoldIcon, BugIcon, ItalicIcon, RedoIcon, StrikethroughIcon, TvIcon, UndoIcon } from "lucide-react";
-import { Toggle } from "@/components/ui/toggle";
+import { BoldIcon, BugIcon, CaseLowerIcon, CaseUpperIcon, ItalicIcon, RedoIcon, StrikethroughIcon, UnderlineIcon, UndoIcon } from "lucide-react";
 import { useEditorState, type Editor } from "@tiptap/react";
-import { useEffect, type FC } from "react";
+import { type FC } from "react";
+import { Toggle } from "@/components/ui/toggle";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
@@ -18,8 +18,8 @@ const MenuBar : FC<MenuBarProps> = ({ editor }) => {
         canBold: ctx.editor.can().chain().toggleBold().run() ?? false,
         isItalic: ctx.editor.isActive('italic') ?? false,
         canItalic: ctx.editor.can().chain().toggleItalic().run() ?? false,
-        isStrike: ctx.editor.isActive('strike') ?? false,
-        canStrike: ctx.editor.can().chain().toggleStrike().run() ?? false,
+        isUnderlined: ctx.editor.isActive('underline') ?? false,
+        canUnderlined: ctx.editor.can().chain().toggleUnderline().run() ?? false,
         canUndo: ctx.editor.can().chain().undo().run() ?? false,
         canRedo: ctx.editor.can().chain().redo().run() ?? false,
       }
@@ -27,10 +27,13 @@ const MenuBar : FC<MenuBarProps> = ({ editor }) => {
   });
 
   return(
-    <div className="flex items-center p-1 gap-2 border border-b-0 bg-accent/5">
+    <div className="flex items-center px-2 py-1 gap-2 border border-b-0 bg-accent/5">
+
+      {/* Gestion de la graisse de police */}
       <div className="flex gap-1">
         <Toggle
           className="cursor-pointer"
+          size="sm"
           onPressedChange={() => editor.chain().focus().toggleBold().run()}
           disabled={!editorState.canBold}
           pressed={editorState.isBold}
@@ -40,6 +43,7 @@ const MenuBar : FC<MenuBarProps> = ({ editor }) => {
 
         <Toggle
           className="cursor-pointer"
+          size="sm"
           onPressedChange={() => editor.chain().focus().toggleItalic().run()}
           disabled={!editorState.canItalic}
           pressed={editorState.isItalic}
@@ -49,11 +53,39 @@ const MenuBar : FC<MenuBarProps> = ({ editor }) => {
 
         <Toggle
           className="cursor-pointer"
-          onPressedChange={() => editor.chain().focus().toggleStrike().run()}
-          disabled={!editorState.canStrike}
-          pressed={editorState.isStrike}
+          size="sm"
+          onPressedChange={() => editor.chain().focus().toggleUnderline().run()}
+          disabled={!editorState.canUnderlined}
+          pressed={editorState.isUnderlined}
         >
-          <StrikethroughIcon strokeWidth={editorState.isStrike ? 3 : 2} className="w-4 h-4"/>
+          <UnderlineIcon strokeWidth={editorState.isUnderlined ? 3 : 2} className="w-4 h-4"/>
+        </Toggle>
+      </div>
+
+      <div className="h-6">
+        <Separator orientation="vertical" />
+      </div>
+
+      {/* Gestion de la casse */}
+      <div className="flex gap-1">
+        <Toggle
+          className="cursor-pointer"
+          size="sm"
+          onPressedChange={() => editor.chain().focus().toggleBold().run()}
+          disabled={!editorState.canBold}
+          pressed={editorState.isBold}
+        >
+          <CaseUpperIcon strokeWidth={editorState.isBold ? 3 : 2} className="w-4 h-4"/>
+        </Toggle>
+
+        <Toggle
+          className="cursor-pointer"
+          size="sm"
+          onPressedChange={() => editor.chain().focus().toggleItalic().run()}
+          disabled={!editorState.canItalic}
+          pressed={editorState.isItalic}
+        >
+          <CaseLowerIcon strokeWidth={editorState.isItalic ? 3 : 2} className="w-4 h-4"/>
         </Toggle>
       </div>
 
@@ -77,16 +109,6 @@ const MenuBar : FC<MenuBarProps> = ({ editor }) => {
           onClick={() => editor.chain().focus().redo().run()}
         >
           <RedoIcon className="w-4 h-4"/>
-        </Button>
-      </div>
-
-      <div className="flex gap-1">
-        <Button
-          variant="default"
-          className="cursor-pointer"
-          onClick={() => console.log(editor.getJSON())}
-        >
-          <BugIcon className="w-4 h-4"/>
         </Button>
       </div>
     </div>

@@ -6,9 +6,9 @@ import { useMemo } from 'react';
 import MenuBar from './MenuBar';
 
 import SampleRecipe from '../../recipe-sample.json';
-import { Label } from '@/components/ui/label';
 
-const LabelEditor = () => {
+export default function LabelEditor()
+{
   const editor = useEditor({
     extensions: [TextStyleKit, StarterKit],
     content: SampleRecipe
@@ -19,13 +19,15 @@ const LabelEditor = () => {
 
   return (
     <EditorContext.Provider value={providerValue}>
-      <div className='mx-6'>
-        <Label>Editeur</Label>
+      <div >
         <MenuBar editor={editor}/>
-        <EditorContent className='border p-2 outline-none' editor={editor} placeholder='Hello World!' />
+        <EditorContent
+          id='recipe'
+          className='border p-2 outline-none'
+          editor={editor}
+          placeholder='Hello World!'
+        />
       </div>
     </EditorContext.Provider>
   )
 }
-
-export default LabelEditor;
