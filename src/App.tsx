@@ -1,7 +1,10 @@
+"use client";
+
 import ComboBox from "./Combobox";
 import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
 import { Label } from "./components/ui/label";
+import CountrySelector from "./country-selector/CountrySelector";
 import LabelEditor from "./label-editor/LabelEditor";
 
 export default function App()
@@ -21,14 +24,17 @@ export default function App()
       <div className="flex flex-col gap-2">
         <Label htmlFor="category">Catégorie</Label>
         <ComboBox
-          placeholder="Choisir une catégorie"
           name="category"
+          placeholder="Choisir une catégorie"
           options={[
             { label: "Fruits secs", value: '1' },
             { label: "Confiserie", value: '2' },
             { label: "Graines", value: '3' },
             { label: "Céréales", value: '4' },
           ]}
+          renderOption={(opt) => (
+            <span>{opt.label}</span>
+          )}
         />
       </div>
 
@@ -36,6 +42,8 @@ export default function App()
         <Label htmlFor="recipe">Liste d'ingrédients</Label>
         <LabelEditor/>
       </div>
+
+      <CountrySelector/>
       
       <Button>Enregistrer</Button>
     </div>

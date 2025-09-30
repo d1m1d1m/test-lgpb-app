@@ -1,6 +1,6 @@
 import { CheckIcon, ChevronsUpDownIcon, SearchIcon } from "lucide-react";
 import { Button } from "./components/ui/button";
-import { useEffect, useRef, useState, type FC } from "react";
+import React, { useEffect, useRef, useState, type FC } from "react";
 import { Label } from "./components/ui/label";
 import { Input } from "./components/ui/input";
 import { ScrollArea } from "./components/ui/scroll-area";
@@ -9,12 +9,14 @@ interface ComboBoxProps {
   options: { label: string, value: string }[];
   placeholder: string;
   name: string;
+  renderOption?: (opt : { label: string, value: string }) => React.JSX.Element
 }
 
 const ComboBox : FC<ComboBoxProps> = ({
   name,
   placeholder,
-  options
+  options,
+  renderOption
 }) =>
 {
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
@@ -80,12 +82,13 @@ const ComboBox : FC<ComboBoxProps> = ({
           </Label>
 
           <ScrollArea className="p-1 scroll-p-4">
-            <ul className="flex flex-col gap-1  max-h-32">
+            <ul className="flex flex-col gap-1 max-h-32">
               {filteredOptionsFound && (
                 filteredOptions.map((opt, i) => (
                   <li key={opt.label + i}>
                     <label className="flex items-center hover:bg-accent/30 has-checked:bg-accent py-1.5 px-2 rounded-md">
-                      <span>{opt.label}</span>
+                      {renderOption && renderOption(opt)}
+                      
                       <input className="peer sr-only" hidden type="radio" name={name} value={opt.value} checked={selectedOption === opt.label} onChange={() => setSelected(opt.value)}/>
                       <CheckIcon className="h-[1em] invisible peer-checked:visible ml-auto"/>
                     </label>
